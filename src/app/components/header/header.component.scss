@@ -213,3 +213,13 @@
     }
   }
 }
+
+@media(max-width: 768px){
+  header{
+    justify-content: space-around !important;
+  }
+
+  .container{
+    display:none;
+  }
+}
