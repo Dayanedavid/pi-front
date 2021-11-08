@@ -7,7 +7,7 @@
           <i class="fa-solid fa-star" *ngFor="let star of starsB(post.rating)"></i>
           <i class="fa-regular fa-star" *ngFor="let star of starsW(post.rating)"></i>
         </div>
-        <button>Solicitar orçamento</button>
+        <button (click)="teste()">Solicitar orçamento</button>
         <button *ngIf="isAuthor" (click)="toggle(post.id)">Deletar</button>
       </div>
     </article>
@@ -21,4 +21,26 @@
       </div>
     </div>
     <div class="overlay"></div>
+</ng-container>
+
+<ng-container *ngIf="mostrar">
+  <div class="teste">
+    <div class="modal">
+      <h2>Formulario de Orçamento</h2>
+      <form>
+        <label for="name">Nome</label>
+        <input type="text" name="name" id="name">
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email">
+
+        <label for="message">Mensagem</label>
+        <input type="text" name="message" id="message">
+      </form>
+      <div class="buttons">
+        <button class="bnt-s" (click)="teste()">Enviar orçamento</button>
+      </div>
+    </div>
+    <div class="overlay"></div>
+  </div>
 </ng-container>

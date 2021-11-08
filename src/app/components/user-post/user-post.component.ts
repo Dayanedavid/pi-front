@@ -58,4 +58,9 @@ export class UserPostComponent implements OnInit {
       error: err => console.log(err)
     })
   }
+
+  mostrar: boolean = false;
+  teste(){
+    this.mostrar = !this.mostrar;
+  }
 }
