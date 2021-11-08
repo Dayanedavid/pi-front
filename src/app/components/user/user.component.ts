@@ -22,6 +22,16 @@ export class UserComponent implements OnInit {
           console.log(data);
           this.user = data;
         },
+        error: err => this.user = {
+          id: '0',
+          username: '',
+          name: '',
+          email: '',
+          tagline: '',
+          description: '',
+          imgUrl: '',
+          ratings: [],
+        }
         // error: (err: Error) => this.router.navigateByUrl('404')
       }
     );

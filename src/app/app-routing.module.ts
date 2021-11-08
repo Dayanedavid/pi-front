@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'screate'     , component: ServiceCreateComponent },
   { path: 'cs'          , component: CreatePostComponent },
   { path: 'u/:userslug' , component: UserProfileComponent },
-  { path: 'edit'          , component: ProfileEditComponent },
+  { path: 'u/settings'  , component: ProfileEditComponent },
   { path: '**'          , component: PageNotFoundComponent },
 ];
 

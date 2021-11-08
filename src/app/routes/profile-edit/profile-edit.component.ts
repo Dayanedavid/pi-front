@@ -3,6 +3,7 @@ import { ProfileEditForm } from 'src/app/models/Classes';
 import { Router } from '@angular/router';
 import { FormTemplate } from 'src/app/components/form/form.component';
 import { HttpService } from 'src/app/services/http.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-profile-edit',
@@ -13,6 +14,9 @@ export class ProfileEditComponent extends FormTemplate {
 
   constructor(private router: Router) {
     super(/(username)|(name)|(email)|(bio)|(password)|(passconf)/);
+    HttpService.getUserSettings(AuthService.load().username).subscribe({
+      next: data => console.log(data)
+    })
    }
 
 
@@ -22,10 +26,8 @@ export class ProfileEditComponent extends FormTemplate {
 
     const form: Map<string, any> = new Map();
 
-    let i = 0;
-    this.fields.forEach(field => {
+    this.fields.forEach((field, i) => {
       form.set(field.name, this.form.value[i]);
-      i++;
     });
 
     console.log(new ProfileEditForm(form));

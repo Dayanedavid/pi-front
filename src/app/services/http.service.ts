@@ -31,26 +31,33 @@ export class HttpService {
                                   'Access-Control-Allow-Origin': '*' }};
     return this.http.get<User>(`${this.apiURL}/u/${username}/profile`, options);
   }
+  
+  static getUserSettings(username: string): Observable<any> {
+    return this.http.get(`${this.apiURL}/u/${username}/settings`);
+  }
+
+  static updateProfile(form: ProfileEditForm): Observable<any> {
+    return this.http.put(`${this.apiURL}/u/edit`, form);
+  }
+
+  static deleteProfile(username: string, password: string): Observable<any> {
+    return this.http.delete(`${this.apiURL}/u/${username}/settings`, { body: password });
+  }
 
   static getPost(id: string): Observable<any> {
     return this.http.get<Post>(`${this.apiURL}/services/${id}`)
   }
 
   static getPosts(username: string): Observable<any> {
-    const options = { headers: { Authorization: AuthService.load().refresh_token,
-                                  'Access-Control-Allow-Origin': '*' }};
-    return this.http.get<Post[]>(`${this.apiURL}/u/${username}/services`, options);
+    return this.http.get<Post[]>(`${this.apiURL}/u/${username}/services`);
   }
 
   static getPostsServices(): Observable<any> {
-    return this.http.get<Post[]>(`${this.apiURL}/services`);
+   return this.http.get<Post[]>(`${this.apiURL}/services`);
   }
 
   static deletePost(username: string, id: string): Observable<any> {
     return this.http.delete(`${this.apiURL}/u/${username}/services/${id}`)
-  }
-  static updateProfile(form: ProfileEditForm): Observable<any> {
-    return this.http.put(`${this.apiURL}/u/edit`, form);
   }
 
   static refreshToken(): Observable<any> {
@@ -78,6 +85,6 @@ export class HttpService {
   static getImg(): Observable<Post[]>{
     let token = window.sessionStorage.getItem('token');
     return this.http.get<Post[]>(this.apiURL + 'u/service',
-    {headers: {Authorization: `${token}`}})
+                                  { headers: { Authorization: `${token}` } })
   }
 }
