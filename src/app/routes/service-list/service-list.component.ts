@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Post } from 'src/app/models/Classes';
 import { HttpService } from 'src/app/services/http.service';
 
@@ -9,11 +10,14 @@ import { HttpService } from 'src/app/services/http.service';
 })
 export class ServiceList implements OnInit {
    
+  list5:Array<any>= new Array(5);
   services: Post[] = [];
 
-  constructor() { 
-    const username: string = "sprindovaldo"
-     HttpService.getPosts(username).subscribe(
+  constructor(
+    private router: Router
+  ) { 
+    
+    HttpService.getPostsServices().subscribe(
       {
         next: data => {
           this.services = data;
@@ -21,6 +25,18 @@ export class ServiceList implements OnInit {
         error: err => console.error(err)  
       }
     );
+  }
+
+  starsB(n?:number){
+    return new Array(n ? n : 0);
+  }
+
+  starsW(n?:number){
+    return new Array(n ? 5 - n : 5);
+  }
+
+  teste(){
+    this.router.navigateByUrl('/user')
   }
 
   ngOnInit(): void {

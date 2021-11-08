@@ -1,11 +1,15 @@
-<table width="250">
-    <thead>
-        <th>ID</th>
-        <th>Nome</th>
-    </thead>
-    <tbody *ngFor="let service of services">
-        <td> {{ service.id }}</td>
-        <td> {{ service.title }}</td>
-    </tbody>
-</table>
+<div class="grid">
+    <article *ngFor="let service of services">
+      <img src="https://images.unsplash.com/photo-1636306950045-4dbb10b7e0f4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80">
+      <div class="text">
+        <h3>{{service.title}}</h3>
+        <p>{{service.description}}</p>
+        <div class="rating">
+          <i class="fa-solid fa-star" *ngFor="let star of starsB(service.rating)"></i>
+          <i class="fa-regular fa-star" *ngFor="let star of starsW(service.rating)"></i>
+        </div>
+        <button (click)="teste()">Ver mais</button>
+      </div>
+    </article>
+</div>
 

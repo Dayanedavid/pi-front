@@ -18,7 +18,6 @@
     grid-template:
       "logo menu" 100% /
       auto  auto;
-    gap: 1rem;
     justify-content: space-between;
     align-items: center;
     height: 100%;
@@ -33,6 +32,7 @@
       display: flex;
       flex-direction: row;
       align-items: center;
+      width: 100%;
       gap: 1rem;
       .menu {
         @include inactive;
@@ -70,7 +70,6 @@
       
       .notsignedin {
         @include colorLight;
-        margin-left: 1rem;
         border-radius: 2rem;
         .signin {
           padding: .5rem;
@@ -118,12 +117,10 @@
         left: 0;
         width: 2.5rem;
         height: 2.5rem;
-        // background: rgb(20, 140, 220);
         border-radius: 50%;
         transition: all 1s;
         z-index: 4;
         box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
-        // box-shadow: 0 0 25px 0 crimson;
         &:hover {
           cursor: pointer;
         }

@@ -2,14 +2,14 @@
 			<carousel
 				#myCarousel="carousel"
         [autoplay]="true"
-				[autoplayInterval]="2000"
+				[autoplayInterval]="1000"
         [height]="400"
         [cellsToShow]="1"
-        [transitionDuration]="1000"
+        [transitionDuration]="2000"
         [overflowCellsLimit]="1">
 
 				<div class="carousel-cell" *ngFor="let img of images; index as i;">
-					<a href="{{img.url}}"><img src="{{img.path}}" style="object-fit: contain; border-radius: 10px" ></a>
+				<img src="{{img.path}}" style="object-fit: cover; border-radius: 10px" >
 				</div>
 			</carousel>
       <br><br>
@@ -25,7 +25,7 @@
         [arrows]="false"
         [overflowCellsLimit]="1">
 
-				<div class="carousel-cell" *ngFor="let img of images; index as i;">
-					<a href="{{img.url}}"><img src="{{img.path}}" style="object-fit: cover; border-radius: 10px" ></a>
+				<div class="carousel-cell" *ngFor="let img of imagesx; index as i;">
+				<img src="{{img.path}}" style="object-fit: cover; border-radius: 10px" >
 				</div>
 			</carousel>
