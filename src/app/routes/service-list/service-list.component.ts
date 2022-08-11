@@ -36,7 +36,7 @@ export class ServiceList implements OnInit {
   }
 
   teste(){
-    this.router.navigateByUrl('/user')
+    this.router.navigateByUrl('/service')
   }
 
   ngOnInit(): void {

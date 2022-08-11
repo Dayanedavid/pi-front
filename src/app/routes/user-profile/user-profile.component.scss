@@ -2,12 +2,12 @@
 @import '../../../assets/css/mixins';
 
 :host {
-  place-self: center;
-  max-width: 80rem;
   width: 100%;
   section {
     display: flex;
     flex-direction: row;
+    width: 100%;
+    max-width: 80rem;
     justify-content: space-between;
   }
 }

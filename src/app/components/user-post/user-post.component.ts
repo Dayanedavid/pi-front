@@ -53,9 +53,11 @@ export class UserPostComponent implements OnInit {
   }
 
   deletePost() {
-    HttpService.deletePost(this.router.url.substring(3), this.postToDelete).subscribe({
+    const username = this.router.url.substring(3);
+    HttpService.deletePost(username, this.postToDelete).subscribe({
       next: data => console.log(data),
-      error: err => console.log(err)
+      error: err => console.log(err),
+      complete: () => PostsService.load(username)
     })
   }
 

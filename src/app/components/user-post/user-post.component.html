@@ -7,8 +7,8 @@
           <i class="fa-solid fa-star" *ngFor="let star of starsB(post.rating)"></i>
           <i class="fa-regular fa-star" *ngFor="let star of starsW(post.rating)"></i>
         </div>
-        <button (click)="teste()">Solicitar orçamento</button>
-        <button *ngIf="isAuthor" (click)="toggle(post.id)">Deletar</button>
+        <button *ngIf="isAuthor; else elseBlock" (click)="toggle(post.id)">Deletar</button>
+        <ng-template #elseBlock ><button>Solicitar orçamento</button></ng-template>
       </div>
     </article>
 

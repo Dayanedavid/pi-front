@@ -8,6 +8,8 @@
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
+    width: 100%;
+    max-width: 80rem;
     align-items: center;
     article {
         @include colorLight;

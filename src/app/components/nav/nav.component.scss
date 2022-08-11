@@ -3,6 +3,7 @@
 
 :host {
     @include colorLight;
+    z-index: 1000;
     position: fixed;
     top: $header-height;
     display: grid;
